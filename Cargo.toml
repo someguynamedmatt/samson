@@ -1,0 +1,13 @@
+[package]
+name = "samson"
+version = "0.1.0"
+authors = ["Matt <dev@mttyng.com>"]
+edition = "2018"
+
+[lib]
+
+[[bin]]
+name = "samson"
+path = "src/bin.rs"
+
+[dependencies]

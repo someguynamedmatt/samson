@@ -1,14 +1,24 @@
-use std::io::Write;
+use std::io;
+use std::io::prelude::*;
 
 fn main() {
-    let mut input = String::new();
-    print!("samson > ");
-    let _ = std::io::stdout().flush();
-    match std::io::stdin().read_line(&mut input) {
-        Ok(_) => {
-            println!("{}", input);
+    let stdin = io::stdin();
+    let mut flag = false;
+    'main_loop: loop {
+        let mut input = String::new();
+        if flag {
+            print!("...\t");
+        } else {
+            print!("samson > ");
         }
-        Err(error) => println!("[ERROR]: {}", error),
+        let _ = std::io::stdout().flush();
+        stdin.read_line(&mut input);
+
+        if !input.contains(";\n") {
+            flag = true;
+        }
+        if input.contains(";\n"){
+            break 'main_loop
+        }
     }
 }
-
